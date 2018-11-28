@@ -1,6 +1,5 @@
 var cols, rows;
-var w = 50;
-
+var w = 30;
 
 var grid = [];
 var gen_current;
@@ -16,9 +15,10 @@ var closed_list = [];
 var path = [];
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(1200, 600);
   cols = floor(width/w);
   rows = floor(height/w);
+
 
   for (var   j = 0; j < rows; j++) {
     for (var i = 0; i < cols; i++) {
@@ -68,6 +68,7 @@ function draw() {
       end_node.g = end_node.h = end_node.f = 0
 
       open_list.push(start_node);
+
 
       return;
     }
@@ -145,6 +146,15 @@ function draw() {
         }
 
         open_list.push(children[i]);
+      }
+
+      for(var i = 0; i < closed_list.length; i++) {
+        closed_list[i].highlightClosed();
+      }
+      current_show = current_node;
+      while(current_show != null) {
+        current_show.highlightPath();
+        current_show = current_show.parent;
       }
 
     } else {

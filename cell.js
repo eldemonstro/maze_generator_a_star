@@ -91,7 +91,7 @@ function Cell(i, j) {
       line(x    , y + w, x    , y);
     }
     noStroke();
-    fill(0, 255, 0, 100);
+    fill(102, 255, 0, 100);
     rect(x, y, w, w);
   }
 
@@ -112,7 +112,7 @@ function Cell(i, j) {
       line(x    , y + w, x    , y);
     }
     noStroke();
-    fill('yellow');
+    fill(204, 255, 51, 80);
     rect(x, y, w, w);
   }
 
