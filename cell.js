@@ -4,10 +4,7 @@ function Cell(i, j) {
   this.walls = [true, true, true, true];
   this.visited = false;
   this.revisited = false;
-  this.colorSetted = false;
-  this.currentColor = [];
 
-  // Astar vars
   self.parent = parent
   self.g = 0
   self.h = 0
@@ -120,15 +117,6 @@ function Cell(i, j) {
     return other.i == this.i && other.j == this.j
   }
 
-  this.setColor = function(r, g, b, a) {
-    this.colorSetted = true;
-    this.currentColor = [r, g, b, a]
-  }
-
-  this.getColor = function() {
-    fill(this.currentColor[0], this.currentColor[1], this.currentColor[2], this.currentColor[3])
-  }
-
   this.show = function() {
     var x = this.i*w;
     var y = this.j*w;
@@ -146,11 +134,7 @@ function Cell(i, j) {
       line(x    , y + w, x    , y);
     }
 
-    if (this.colorSetted) {
-      noStroke();
-      this.getColor();
-      rect(x, y, w, w)
-    } else if (this.revisited) {
+    if (this.revisited) {
       noStroke();
       fill(255, 0, 126, 100);
       rect(x, y, w, w);
